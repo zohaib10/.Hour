@@ -1,2 +1,0 @@
-# .Hour
-Created with CodeSandbox
