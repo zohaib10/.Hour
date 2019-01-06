@@ -25,17 +25,15 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AddIcon from "@material-ui/icons/Add";
 
 const styles = {
-  paper: {
-    width: 600,
-    height: 300,
-    margin: 20
+  margin1: {
+    marginTop: 80
   },
   redText: {
     color: "red"
   },
   paper1: {
     width: 350,
-    margin: 20
+    margin: 60
   },
   div: {
     width: "100%"
@@ -102,144 +100,147 @@ class Login extends Component {
 
   render() {
     return (
-      <Grid
-        container
-        spacing={24}
-        direction="row-reverse"
-        justify="space-between"
-        alignItems="flex-start"
-        center
-      >
-        <Grid item xs={12} sm={6}>
-          <Paper elevation={1} style={styles.paper1}>
-            <div style={styles.div} align="center">
-              <FormControl style={styles.textField}>
-                <InputLabel htmlFor="input-with-icon-adornment">
-                  Username
-                </InputLabel>
-                <Input
-                  id="input-with-icon-adornment"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <AccountCircle />
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-              <FormControl style={styles.textField}>
-                <InputLabel htmlFor="input-with-icon-adornment">
-                  Password
-                </InputLabel>
-                <Input
-                  id="input-with-icon-adornment"
-                  type={this.state.showPassword ? "text" : "password"}
-                  value={this.state.password}
-                  onChange={this.handleChange("password")}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <AccountCircle />
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="Toggle password visibility"
-                        onClick={this.handleClickShowPassword}
-                      >
-                        {this.state.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
+      <div>
+        <Grid
+          container
+          spacing={24}
+          direction="row-reverse"
+          justify="space-between"
+          alignItems="flex-start"
+          style={styles.margin1}
+        >
+          <Grid item xs={12} sm={6}>
+            <Paper elevation={1}>
+              <div align="center">
+                <FormControl style={styles.textField}>
+                  <InputLabel htmlFor="input-with-icon-adornment">
+                    Username
+                  </InputLabel>
+                  <Input
+                    id="input-with-icon-adornment"
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <AccountCircle />
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+                <FormControl style={styles.textField}>
+                  <InputLabel htmlFor="input-with-icon-adornment">
+                    Password
+                  </InputLabel>
+                  <Input
+                    id="input-with-icon-adornment"
+                    type={this.state.showPassword ? "text" : "password"}
+                    value={this.state.password}
+                    onChange={this.handleChange("password")}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <AccountCircle />
+                      </InputAdornment>
+                    }
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="Toggle password visibility"
+                          onClick={this.handleClickShowPassword}
+                        >
+                          {this.state.showPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
 
-              <FormControl style={styles.textField} align="center">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  style={styles.button}
-                >
-                  Sign In
-                </Button>
-
-                <div>
+                <FormControl style={styles.textField} align="center">
                   <Button
-                    onClick={this.handleClickOpen}
-                    style={{ textTransform: "none" }}
+                    variant="contained"
+                    color="primary"
+                    style={styles.button}
                   >
-                    Forgot Password
+                    Sign In
                   </Button>
-                  <Dialog
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    aria-labelledby="form-dialog-title"
-                  >
-                    <DialogTitle id="form-dialog-title">
+
+                  <div>
+                    <Button
+                      onClick={this.handleClickOpen}
+                      style={{ textTransform: "none" }}
+                    >
                       Forgot Password
-                    </DialogTitle>
-                    <DialogContent>
-                      <DialogContentText>
-                        Please provide the email associated with your account
-                        and we will send you an email conatining your password.
-                      </DialogContentText>
-                      <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Email Address"
-                        type="email"
-                        fullWidth
-                      />
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={this.handleClose} color="primary">
-                        Cancel
-                      </Button>
-                      <Button onClick={this.handleClose} color="primary">
-                        Send
-                      </Button>
-                    </DialogActions>
-                  </Dialog>
-                </div>
-                <Typography variant="h7" style={styles.margin}>
-                  Not a Member? Register.
-                </Typography>
-              </FormControl>
-              <Fab
-                size="small"
-                color="secondary"
-                aria-label="Add"
-                style={styles.margin}
-              >
-                <AddIcon />
-              </Fab>
+                    </Button>
+                    <Dialog
+                      open={this.state.open}
+                      onClose={this.handleClose}
+                      aria-labelledby="form-dialog-title"
+                    >
+                      <DialogTitle id="form-dialog-title">
+                        Forgot Password
+                      </DialogTitle>
+                      <DialogContent>
+                        <DialogContentText>
+                          Please provide the email associated with your account
+                          and we will send you an email conatining your
+                          password.
+                        </DialogContentText>
+                        <TextField
+                          autoFocus
+                          margin="dense"
+                          id="name"
+                          label="Email Address"
+                          type="email"
+                          fullWidth
+                        />
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                          Cancel
+                        </Button>
+                        <Button onClick={this.handleClose} color="primary">
+                          Send
+                        </Button>
+                      </DialogActions>
+                    </Dialog>
+                  </div>
+                  <Typography variant="h7" style={styles.margin}>
+                    Not a Member? Register.
+                  </Typography>
+                </FormControl>
+                <Fab
+                  size="small"
+                  color="secondary"
+                  aria-label="Add"
+                  style={styles.margin}
+                >
+                  <AddIcon />
+                </Fab>
+              </div>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <div>
+              <Typography style={styles.redText} variant="h2" gutterBottom>
+                AEON.Hour
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                inventore consectetur, neque doloribus, cupiditate numquam
+                dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quos blanditiis tenetur unde suscipit, quam beatae rerum
+                inventore consectetur, neque doloribus, cupiditate numquam
+                dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              </Typography>
             </div>
-          </Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <div>
-            <Typography style={styles.redText} variant="h2" gutterBottom>
-              AEON.Hour
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
-              consectetur, neque doloribus, cupiditate numquam dignissimos
-              laborum fugiat deleniti? Eum quasi quidem quibusdam.
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
-              consectetur, neque doloribus, cupiditate numquam dignissimos
-              laborum fugiat deleniti? Eum quasi quidem quibusdam.
-            </Typography>
-          </div>
-        </Grid>
-      </Grid>
+      </div>
     );
   }
 }
